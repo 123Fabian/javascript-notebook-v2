@@ -1,4 +1,5 @@
 import produce from "immer";
+import localForage from "localforage";
 
 import { ActionType } from "../action-types";
 import { Action } from "../actions";
@@ -19,6 +20,11 @@ const initialState: CellsState = {
     order: [],
     data: {}
 }
+
+
+const cellCache = localForage.createInstance({
+    name: 'cellCache',
+});
 
 const reducer = produce((state: CellsState = initialState , action: Action ): CellsState => {
     switch (action.type) {
@@ -70,6 +76,11 @@ const reducer = produce((state: CellsState = initialState , action: Action ): Ce
             }
             return state;
             
+        case ActionType.SAVE_CELL: 
+        
+            cellCache.setItem(action.payload.id, action.payload.cell)
+            return state;
+        
         default: 
             return state;
     }

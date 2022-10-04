@@ -11,8 +11,6 @@ const AddCell: React.FC<AddCellProps> = ({ forceVisible, previousCellId }) => {
 
     const { insertCellAfter } = useActions();
 
-    //@todo on hover last add cell should be full height hover
-
     return(
         <div className={`add-cell ${forceVisible && 'add-cell-visible'}`}>
             <div className="add-cell-buttons">

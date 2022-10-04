@@ -1,8 +1,9 @@
 import { ActionType } from "../action-types";
-import { Action, UpdateCellAction, MoveCellAction, DeleteCellAction, InsertCellAfterAction, DirectionTypes } from '../actions';
+import { Action, UpdateCellAction, MoveCellAction, SaveCellAction, DeleteCellAction, InsertCellAfterAction, DirectionTypes } from '../actions';
 import { CellTypes } from "../cell";
 import { Dispatch } from "redux";
 import bundle from "../../bundler";
+import { Cell } from "..";
 
 export const updateCell = (id: string, content: string) : UpdateCellAction  => {
     return{    
@@ -28,6 +29,16 @@ export const moveCell = (id: string, direction: DirectionTypes) : MoveCellAction
         payload: {
             id,
             direction
+        }
+    }
+};
+
+export const saveCell = (id: string, cell: Cell ) : SaveCellAction => {
+    return {
+        type: ActionType.SAVE_CELL,
+        payload: {
+            id,
+            cell
         }
     }
 };

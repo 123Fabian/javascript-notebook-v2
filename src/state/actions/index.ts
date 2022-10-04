@@ -1,5 +1,5 @@
 import { ActionType } from "../action-types";
-import { CellTypes } from "../cell"
+import { CellTypes, Cell } from "../cell"
 
 export type DirectionTypes = 'up' | 'down'
 
@@ -9,6 +9,14 @@ export interface MoveCellAction {
     payload: {
         id: string;
         direction: DirectionTypes
+    }
+}
+
+export interface SaveCellAction {
+    type: ActionType.SAVE_CELL;
+    payload: {
+        id: string;
+        cell: Cell
     }
 }
 
@@ -58,5 +66,6 @@ export type Action =
     | InsertCellAfterAction 
     | UpdateCellAction
     | BundleCompletAction
-    | BundleStartAction;
+    | BundleStartAction
+    | SaveCellAction;
 
