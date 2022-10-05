@@ -2,6 +2,7 @@
   "name": "javascript-notebook",
   "version": "1.0",
   "private": true,
+  "homepage": "https://www.fabiandev.nl/projecten/javascript-notebook/",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@monaco-editor/react": "3.7.5",
