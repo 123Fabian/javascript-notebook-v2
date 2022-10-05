@@ -32,6 +32,7 @@ const reducer = produce((state: CellsState = initialState , action: Action ): Ce
         case ActionType.UPDATE_CELL:
             
             const { id, content } = action.payload
+
             state.data[id].content = content
             return state;
  
@@ -74,11 +75,20 @@ const reducer = produce((state: CellsState = initialState , action: Action ): Ce
             else{
                 state.order.splice(foundIndex + 1, 0, cell.id)
             }
+
             return state;
             
         case ActionType.SAVE_CELL: 
         
             cellCache.setItem(action.payload.id, action.payload.cell)
+            
+            return state;
+        
+        case ActionType.CREATE_SAVED_CELL: 
+        
+            state.data[action.payload.id] = action.payload.cell
+            state.order.unshift(action.payload.id)
+
             return state;
         
         default: 
@@ -86,7 +96,7 @@ const reducer = produce((state: CellsState = initialState , action: Action ): Ce
     }
 }, initialState);
 
-const randomId = () => {
+export const randomId = () => {
     return Math.random().toString(36).substr(2, 5)
 }
 

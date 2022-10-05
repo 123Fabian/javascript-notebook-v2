@@ -4,6 +4,14 @@
 
 .action-bar-wrapper {
 	height: 30px;
-	background-color: #37414b;
+	background-color: #5e100d;
 	width: 100%;
+}
+
+.button.is-primary {
+	background-color: #5e100d;
+}
+
+.button.is-primary:hover {
+	background-color: #af0808
 }

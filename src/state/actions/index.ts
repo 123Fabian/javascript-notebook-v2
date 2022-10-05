@@ -20,6 +20,14 @@ export interface SaveCellAction {
     }
 }
 
+export interface CreateSavedCellAction {
+    type: ActionType.CREATE_SAVED_CELL;
+    payload: {
+        id: string;
+        cell: Cell
+    }
+}
+
 export interface DeleteCellAction {
     type: ActionType.DELETE_CELL;
     payload: string
@@ -67,5 +75,6 @@ export type Action =
     | UpdateCellAction
     | BundleCompletAction
     | BundleStartAction
-    | SaveCellAction;
+    | SaveCellAction
+    | CreateSavedCellAction;
 
